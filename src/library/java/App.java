@@ -6,6 +6,7 @@
 package library.java;
 
 import entity.Book;
+import entity.LibHistory;
 import entity.Reader;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +19,9 @@ import java.util.Scanner;
 public class App {
     private List<Book> books = new ArrayList<>();
     private List<Reader> readers = new ArrayList<>();
-    public void run(){
-        String repeat = 'r';
+    private List<LibHistory> libHistories = new ArrayList<>();
+    public void run(BookCreator Creator){
+        String repeat = "r";
         Scanner scanner = new Scanner(System.in);
         int task;
         do{
@@ -35,14 +37,18 @@ public class App {
             switch (task){
                 case 0:
                     repeat="q";
-                    break:
+                    break;
                 case 1:
-                    BookCreator book Creator = new BookCreator();
-                    books.add(BookCreator.returnNewBook()));
+                    BookCreator bookCreator = new BookCreator();
+                    books.add(BookCreator.returnNewBook());
                     break;
                 case 2:
                     ReaderCreator readerCreator = new ReaderCreator();
-                    readers.add(readerCreator.returnNewReader()));
+                    readers.add(readerCreator.returnNewReader());
+                    break;
+                case 3:
+                    LibHistoryCreator libhistoryCreator = new LibHistoryCreator();
+                    libHistories.add(libHistoryCreator.returnNewLibHistory(books, readers));
                     break;
                 default:
                     System.out.println("Выберите одно из действий!");
