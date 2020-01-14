@@ -24,4 +24,8 @@ public class LibHistory {
         this.bookIssued = bookIssued;
         this.bookReturn = bookReturn;
     }
-}
+
+    public void setBookReturn(Date time) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    }
