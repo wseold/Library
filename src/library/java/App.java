@@ -40,15 +40,27 @@ public class App {
                     break;
                 case 1:
                     BookCreator bookCreator = new BookCreator();
-                    books.add(BookCreator.returnNewBook());
+                    books.add(bookCreator.returnNewBook());
                     break;
                 case 2:
                     ReaderCreator readerCreator = new ReaderCreator();
                     readers.add(readerCreator.returnNewReader());
                     break;
                 case 3:
-                    LibHistoryCreator libhistoryCreator = new LibHistoryCreator();
+                    LibHistoryCreator libHistoryCreator = new LibHistoryCreator();
                     libHistories.add(libHistoryCreator.returnNewLibHistory(books, readers));
+                    break;
+                case 4:
+                    BookReturner bookReturner = new BookReturner();
+                    if(bookReturner.returnLibHistory(libHistories)){
+                        System.out.println("Книга возвращена");
+                    }else{
+                        System.out.println("Книгу вернуть не удалось");
+                    }
+                    break;
+                case 5:
+                    HistoryReturner historyReturner = new HistoryReturner();
+                    historyReturner.printListWhoTookBooks(libHistories);
                     break;
                 default:
                     System.out.println("Выберите одно из действий!");

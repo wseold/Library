@@ -6,6 +6,8 @@
 package library.java;
 
 import entity.LibHistory;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,7 +19,7 @@ public class BookReturner {
     public boolean returnLibHistory(List<LibHistory> libHistories){
     try{
         System.out.println("----Возврат книги----");
-        Libhistory libHistory = new Libhistory();
+        LibHistory libHistory =  new LibHistory();
         Scanner scanner = new Scanner(System.in);
         int countLibHistories = libHistories.size();
         for (int i = 0; i < countLibHistories; i++){
@@ -26,6 +28,17 @@ public class BookReturner {
                     +" "+history.getReader().getSurname()
                     +": "+history.getBook().getBookName());          
         }
+            System.out.println("Выберите номер строки с возвращаемой книгой:");
+            System.out.println("Чтобы ничего не делать наберите -1");
+            int numHistory = scanner.nextInt();
+            if(numHistory < 0) return false;
+            libHistory = libHistories.get(numHistory-1);
+            libHistories.remove(libHistory);
+            Calendar c = new GregorianCalendar();
+            libHistory.setBookReturn(c.getTime());
+        return true;         
+    }catch(Exception e){
+        return false;
     }
-    }
+}
 }

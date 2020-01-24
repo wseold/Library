@@ -25,19 +25,44 @@ public class LibHistory {
         this.bookReturn = bookReturn;
     }
 
-    public void setBookReturn(Date time) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Long getId() {
+        return id;
     }
 
-    public Object getReader() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public Object getreader() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Book getBook() {
+        return book;
     }
 
-    public Object getBook() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setBook(Book book) {
+        this.book = book;
     }
+
+    public Reader getReader() {
+        return reader;
+    }
+
+    public void setReader(Reader reader) {
+        this.reader = reader;
+    }
+
+    public Date getBookIssued() {
+        return bookIssued;
+    }
+
+    public void setBookIssued(Date bookIssued) {
+        this.bookIssued = bookIssued;
+    }
+
+    public Date getBookReturn() {
+        return bookReturn;
+    }
+
+    public void setBookReturn(Date bookReturn) {
+        this.bookReturn = bookReturn;
+    }
+
     }
