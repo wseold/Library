@@ -25,6 +25,16 @@ class BookCreator {
         book.setAuthor(scanner.nextLine());
         System.out.println("Год издания книги");
         book.setYearPublishing(scanner.nextInt());
+        System.out.println(book.toString());
+        System.out.println("Для добавления введите любой символ n для отмены наберите -1");
+        String yes = "";
+        yes = scanner.next();
+        if(!"".equals(yes)){
+            System.out.println("----Книга не добавлена");
+            return null;
+        }else{
+            System.out.println("---Книга добавлена");
         return book; 
+        }
     }
 }

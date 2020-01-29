@@ -7,19 +7,18 @@ package library.java;
 
 import entity.Book;
 import entity.LibHistory;
+import entity.PersistToDatabase;
 import entity.Reader;
+import entity.Retentive;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- *
- * @author pupil
- */
 public class App {
     private List<Book> books = new ArrayList<>();
     private List<Reader> readers = new ArrayList<>();
     private List<LibHistory> libHistories = new ArrayList<>();
+    private Retentive saver = new PersistToDatabase();
     public void run(BookCreator Creator){
         String repeat = "r";
         Scanner scanner = new Scanner(System.in);
@@ -39,8 +38,11 @@ public class App {
                     repeat="q";
                     break;
                 case 1:
-                    BookCreator bookCreator = new BookCreator();
-                    books.add(bookCreator.returnNewBook());
+                    Book book =  manager.createBook();
+                    if(book != null){
+                    books.add(book);
+                    saver.saveBook(book);
+                    }
                     break;
                 case 2:
                     ReaderCreator readerCreator = new ReaderCreator();
@@ -66,5 +68,20 @@ public class App {
                     System.out.println("Выберите одно из действий!");
             }
         }while("r".equals(repeat)); 
+    }
+    public App(){
+        this.books = saver.loadBooks();
+        this.readers = saver.loadReaders();
+        this.libHistories = saver.loadLibHistoryes();
+    }
+
+    private static class manager {
+
+        private static Book createBook() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        public manager() {
+        }
     }
 }

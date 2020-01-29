@@ -4,9 +4,15 @@
  * and open the template in the editor.
  */
 package entity;
-import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String bookName;
     private String lsbn;
@@ -24,24 +30,50 @@ public class Book {
         this.yearPublishing = yearPublishing;
     }
 
-    public void setBookName(String nextLine) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+
+    public String getLsbn() {
+        return lsbn;
+    }
+
+    public void setLsbn(String lsbn) {
+        this.lsbn = lsbn;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public Integer getYearPublishing() {
+        return yearPublishing;
+    }
+
+    public void setYearPublishing(Integer yearPublishing) {
+        this.yearPublishing = yearPublishing;
     }
 
     public void setIsbn(String nextLine) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void setYearPublishing(int nextInt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setAuthor(String nextLine) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public String getBookName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  
 }
 
